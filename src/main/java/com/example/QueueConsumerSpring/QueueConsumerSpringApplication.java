@@ -10,13 +10,13 @@ import javax.jms.*;
 
 @SpringBootApplication
 public class QueueConsumerSpringApplication {
-	static TestConsumerThread algo = new TestConsumerThread("1", 100);
-	static TestConsumerThread algo2 = new TestConsumerThread("2", 100);
+	static TestConsumerThread thread01 = new TestConsumerThread("1", 100);
+	static TestConsumerThread thread02 = new TestConsumerThread("2", 100);
 
 	public static void main(String[] args) {
 		SpringApplication.run(QueueConsumerSpringApplication.class, args);
-		algo.start();
-		algo2.start();
+		thread01.start();
+		thread02.start();
 	}
 
 }
