@@ -37,7 +37,7 @@ public class TestConsumerThread extends Thread{
     public void run() {
         String nombreCola = "queue.so1.demo";
         String nombreServicio = "EjemploCola_" + threadId;
-        String serverLocation = "failover:(tcp://localhost:61616)?timeout=3000";
+        String serverLocation = "failover:(tcp://172.17.0.2:61616)?timeout=3000";
 
         try {
 

@@ -75,22 +75,22 @@
 	</properties>
 	<build>
 		<plugins>
-<!--			<plugin>-->
-<!--				<groupId>org.apache.maven.plugins</groupId>-->
-<!--				<artifactId>maven-jar-plugin</artifactId>-->
-<!--				<configuration>-->
-<!--					<archive>-->
-<!--						<manifest>-->
-<!--							<mainClass>com.so1.test.ConsumerMain</mainClass>-->
-<!--							<addClasspath>true</addClasspath>-->
-<!--							<classpathPrefix>lib/</classpathPrefix>-->
-<!--						</manifest>-->
-<!--					</archive>-->
-<!--					<descriptorRefs>-->
-<!--						<descriptorRef>jar-with-dependencies</descriptorRef>-->
-<!--					</descriptorRefs>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.example.QueueConsumerSpring.QueueConsumerSpringApplication</mainClass>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
