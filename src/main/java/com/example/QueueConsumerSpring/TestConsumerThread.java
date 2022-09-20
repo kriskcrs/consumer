@@ -37,7 +37,8 @@ public class TestConsumerThread extends Thread{
     public void run() {
         String nombreCola = "queue.so1.demo";
         String nombreServicio = "EjemploCola_" + threadId;
-        String serverLocation = "failover:(tcp://172.17.0.2:61616)?timeout=3000";
+       // String serverLocation = "failover:(tcp://172.17.0.2:61616)?timeout=3000";
+         String serverLocation = "failover:(tcp://localhost:61616)?timeout=3000";
 
         try {
 
@@ -69,44 +70,21 @@ public class TestConsumerThread extends Thread{
                         System.out.println("[" + threadId + "]Recibiendo: " + text);
 
                         // mm. 21102017 codigo de conversion json a obj persona
+                        //ObjectMapper mapper = new ObjectMapper();
+                        //Persona objetoPersona = mapper.readValue(text, Persona.class);
+
+
                         ObjectMapper mapper = new ObjectMapper();
-                        Persona objetoPersona = mapper.readValue(text, Persona.class);
-//
-                        //             System.out.println("Nombre:" + objetoPersona.getNombre());
-//
-//                        // mm. 21102017 codigo de envio de obj persona a tomcat (consumo de restful en tomcat)
-                        Persona response = new Persona();
-                        /*try {
-                            Client client;
-                            client = Client.create();
-                            client.setConnectTimeout(10000);
-                            client.setReadTimeout(60000);
+                        Object objeto = mapper.readValue(text, Object.class);
 
-                            WebResource service = client
-                                    .resource("http://172.17.0.3:8080/ServicioWeb/rest/enviarDatos");
+                        Object response = new Object();
 
-                            response = service
-                                    .type(MediaType.APPLICATION_JSON)
-                                    .post(Persona.class, objetoPersona);
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }*/
-
-                      /*  if (response != null) {
-                            System.out.println("id:" + response.getId());
-                            System.out.println("Nombre:" + response.getNombre());
-                            System.out.println("edad:" + response.getEdad());
-                        }*/
 
                     } else {
                         System.out.println("[" + threadId + "]Received: " + message);
                     }
 
-                    //Thread.sleep(millis);
-//                    Message message = consumer.receive(1000);
-//                    procesarMensaje(message);
-//                    Thread.sleep(2000);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
