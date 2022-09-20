@@ -69,10 +69,6 @@ public class TestConsumerThread extends Thread{
                         String text = textMessage.getText();
                         System.out.println("[" + threadId + "]Recibiendo: " + text);
 
-                        // mm. 21102017 codigo de conversion json a obj persona
-                        //ObjectMapper mapper = new ObjectMapper();
-                        //Persona objetoPersona = mapper.readValue(text, Persona.class);
-
 
                         ObjectMapper mapper = new ObjectMapper();
                         Object objeto = mapper.readValue(text, Object.class);
